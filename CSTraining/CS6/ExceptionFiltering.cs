@@ -1,4 +1,5 @@
-﻿using static System.Net.HttpStatusCode;
+﻿using System.Net.Sockets;
+using static System.Net.HttpStatusCode;
 namespace CS6
 {
 
@@ -15,9 +16,13 @@ namespace CS6
             {
                 return "Site moved";
             }
-            catch (HttpRequestException e) when ((e.StatusCode == NotFound))
+            catch (HttpRequestException e) when (e.StatusCode == NotFound)
             {
                 return "Not found";
+            }  
+            catch(Exception e) when (e.Message.Contains("No such host is known"))
+            {
+                return "No such host is known";
             }
             catch (Exception ex)
             {

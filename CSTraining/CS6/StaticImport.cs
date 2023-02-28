@@ -2,7 +2,7 @@
 {
     using static Math;
     using static Console;
-    public class StaticImport
+    public static class StaticImport
     {
         public static void Test()
         {
